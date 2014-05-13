@@ -1,7 +1,6 @@
 package org.robolectric.gradle
 
 import com.android.build.gradle.AppPlugin
-import com.android.build.gradle.BasePlugin
 import com.android.build.gradle.LibraryPlugin
 import com.android.builder.BuilderConstants
 import org.gradle.api.Plugin
@@ -12,14 +11,14 @@ import org.gradle.api.tasks.SourceSet
 import org.gradle.api.tasks.testing.Test
 import org.gradle.api.tasks.testing.TestReport
 
-class AndroidTestPlugin implements Plugin<Project> {
+class RobolectricPlugin implements Plugin<Project> {
     private static final String[] TEST_DIRS = ['test', 'androidTest']
     private static final String TEST_TASK_NAME = 'test'
     private static final String TEST_CLASSES_DIR = "test-classes"
     private static final String TEST_REPORT_DIR = "test-report"
 
     void apply(Project project) {
-        def extension = project.extensions.create('androidTest', RobolectricTestExtension)
+        def extension = project.extensions.create('robolectric', RobolectricTestExtension)
         def log = project.logger
         def config = new PluginConfiguration(project)
 
